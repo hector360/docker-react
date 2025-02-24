@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t hector360m/docker-react -f Dockerfile.dev .
+
+script: 
+  - docker run -e CI=true hector360m/docker-react npm run test 
